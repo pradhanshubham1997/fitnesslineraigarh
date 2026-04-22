@@ -60,7 +60,7 @@ const Services: React.FC = () => {
           {services.map((service, idx) => (
             <div key={idx} className={styles.card}>
               <div className={styles.bgImage}>
-                <Image src={service.img} alt={service.title} fill sizes="(max-width: 768px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
+                <Image src={service.img} alt={service.title} fill sizes="(max-width: 768px) 100vw, 33vw" style={{ objectFit: 'cover' }} quality={60} loading="lazy" />
               </div>
               <div className={styles.vignette}></div>
               
