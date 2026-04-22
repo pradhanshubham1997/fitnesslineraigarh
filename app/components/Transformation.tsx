@@ -49,7 +49,7 @@ const Transformation: React.FC = () => {
           {/* 1. TACTICAL BEFORE/AFTER SLIDER */}
           <div className={styles.sliderWrapper} onMouseMove={handleMouseMove} onTouchMove={handleMouseMove}>
             <div className={styles.beforeImg}>
-              <Image src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=2070" alt="Pre Upgrade" fill sizes="(max-width: 1024px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+              <Image src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=2070" alt="Pre Upgrade" fill sizes="(max-width: 1024px) 100vw, 50vw" style={{ objectFit: 'cover' }} quality={60} />
               <span className={styles.label}>PRE_UPGRADE</span>
             </div>
             
@@ -57,7 +57,7 @@ const Transformation: React.FC = () => {
               clipPath: `inset(0 ${100 - sliderPos}% 0 0)`,
               width: '100%' 
             }}>
-              <Image src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=2069" alt="Post Upgrade" priority fill sizes="(max-width: 1024px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+              <Image src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=2069" alt="Post Upgrade" priority fill sizes="(max-width: 1024px) 100vw, 50vw" style={{ objectFit: 'cover' }} quality={60} />
               <span className={styles.labelAfter}>POST_UPGRADE</span>
             </div>
 

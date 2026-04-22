@@ -12,13 +12,17 @@
 .vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 20%, #000 100%),
-  url('/images/gallary/DSC04379.jpg');
-  background-size: cover;
-  background-position: center;
   opacity: 0.7;
   transform: scale(1.1) translate(calc(var(--x) * -1), calc(var(--y) * -1));
   transition: transform 0.2s ease-out;
+  overflow: hidden;
+}
+
+.vignetteGradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 20%, #000 100%);
+  z-index: 1;
 }
 
 .noiseOverlay {

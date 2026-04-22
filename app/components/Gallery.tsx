@@ -43,7 +43,7 @@ const Gallery: React.FC = () => {
           {images.map((img, idx) => (
             <div key={idx} className={styles.imgWrapper} data-aos="fade-up">
               <div className={styles.frameBorder}></div>
-              <Image src={img} alt={`Facility View ${idx + 1}`} className={styles.img} width={800} height={800} sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw" style={{ width: '100%', height: 'auto', objectFit: 'cover' }} />
+              <Image src={img} alt={`Facility View ${idx + 1}`} className={styles.img} width={800} height={800} sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw" style={{ width: '100%', height: 'auto', objectFit: 'cover' }} quality={50} loading="lazy" />
               <div className={styles.infoOverlay}>
                 <span className={styles.shotNumber}>SH-00{idx + 1}</span>
                 <div className={styles.viewIcon}>SCAN</div>
