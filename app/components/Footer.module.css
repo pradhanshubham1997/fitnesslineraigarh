@@ -1,0 +1,308 @@
+.footer {
+  background-color: var(--surface-alt);
+  padding: 10rem 0 2rem;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+}
+
+/* TACTICAL BACKGROUND */
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 16, 48, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 16, 48, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+.giantText {
+  position: absolute;
+  top: 0;
+  right: -5%;
+  font-size: 25vw;
+  font-weight: 950;
+  color: rgba(0, 0, 0, 0.03); /* Light giant text */
+  line-height: 0.7;
+  letter-spacing: -1rem;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 3rem;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 5rem;
+}
+
+/* BRAND LOGISTICS */
+.logoGroup {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 2rem;
+}
+
+.glitchBox {
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  padding: 8px;
+  clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+}
+
+.innerSquare {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #fff;
+}
+
+.logoText {
+  font-size: 2.2rem;
+  font-weight: 950;
+  letter-spacing: -1px;
+  color: var(--secondary);
+  font-family: var(--font-heading);
+}
+
+.mission {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.7;
+  letter-spacing: 0.5px;
+  margin-bottom: 3rem;
+}
+
+.infoItem {
+  margin-bottom: 1.5rem;
+}
+
+.infoItem span {
+  color: var(--primary);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.infoItem p {
+  color: var(--secondary);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+/* TACTICAL MAP SECTION */
+.mapSection {
+  position: relative;
+  height: 100%;
+  min-height: 350px;
+}
+
+.mapFrame {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  overflow: hidden;
+  clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%);
+  box-shadow: var(--card-shadow);
+}
+
+.mapOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 20%, var(--surface-alt) 150%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.mapScanner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary);
+  box-shadow: 0 0 15px var(--primary);
+  z-index: 2;
+  animation: mapScan 4s infinite linear;
+}
+
+.targetPointer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--primary);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.targetPointer::after {
+  content: 'HQ_TARGET';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  font-size: 0.55rem;
+  color: var(--primary);
+  font-weight: 900;
+}
+
+/* NAVIGATION & STATUS */
+.statusBox {
+  background: var(--surface);
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary);
+  margin-bottom: 2.5rem;
+  box-shadow: var(--card-shadow);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.liveIndicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary);
+  animation: pulse 1s infinite;
+}
+
+.hoursRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.linkList a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+.linkList a span {
+  color: var(--primary);
+  font-size: 0.7rem;
+  margin-right: 10px;
+}
+
+.linkList a:hover {
+  transform: translateX(10px);
+  color: var(--primary);
+}
+
+
+/* NEWSLETTER */
+.newsletter {
+  display: flex;
+  background: var(--surface);
+  padding: 5px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.newsletter input {
+  background: transparent;
+  border: none;
+  padding: 12px;
+  color: var(--secondary);
+  flex-grow: 1;
+  font-weight: 700;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.newsletter button {
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  font-weight: 900;
+  padding: 0 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: var(--transition);
+}
+
+.newsletter button:hover {
+  background: #e60023;
+  box-shadow: 0 5px 15px var(--primary-glow);
+}
+
+/* FOOTER BOTTOM */
+.footerBottom {
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.legal {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-soft);
+  letter-spacing: 0.5px;
+}
+
+.pipe { margin: 0 10px; }
+
+.socialRow { display: flex; gap: 20px; }
+.socialRow a {
+  color: var(--secondary);
+  font-weight: 900;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.socialRow a:hover {
+  color: var(--primary);
+}
+
+@keyframes mapScan {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@media (max-width: 1024px) {
+  .mainGrid { grid-template-columns: 1fr 1fr; }
+  .mapSection { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+  .mainGrid { grid-template-columns: 1fr; }
+  .mapSection { grid-column: span 1; }
+}

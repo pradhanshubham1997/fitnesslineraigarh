@@ -1,0 +1,174 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  --primary: #ff3e3e;
+}
+
+/* 1. CINEMATIC TEXTURE */
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 20%, #000 100%),
+  url('/images/gallary/DSC04379.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7;
+  transform: scale(1.1) translate(calc(var(--x) * -1), calc(var(--y) * -1));
+  transition: transform 0.2s ease-out;
+}
+
+.noiseOverlay {
+  position: absolute;
+  inset: 0;
+  background: url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 2. AGGRESSIVE TYPOGRAPHY */
+.heavyTitle {
+  font-size: clamp(4rem, 15vw, 9rem);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -5px;
+  color: #fff;
+  margin-bottom: 2rem;
+  z-index: 10;
+  position: relative;
+}
+
+.outlineText {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+}
+
+.solidText {
+  color: var(--primary);
+  text-shadow: 0 0 40px rgba(255, 62, 62, 0.4);
+  display: inline-block;
+  transform: skewX(-5deg);
+}
+
+/* 3. TACTICAL HUD ELEMENTS */
+.statusTag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+.pulseDot {
+  width: 6px;
+  height: 6px;
+  background: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary);
+  animation: pulse 1.5s infinite;
+}
+
+.descriptionWrapper {
+  display: flex;
+  gap: 20px;
+  max-width: 500px;
+  margin-bottom: 3rem;
+}
+
+.verticalLine {
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary), transparent);
+}
+
+.description {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* 4. AGGRESSIVE CTAs */
+.mainCta {
+  position: relative;
+  background: #fff;
+  border: none;
+  padding: 1.5rem 3rem;
+  font-weight: 900;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);
+  transition: 0.3s;
+}
+
+.mainCta:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-5px) scale(1.05);
+}
+
+.ctaGlitch {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+  transition: 0.5s;
+}
+
+.mainCta:hover .ctaGlitch { left: 100%; }
+
+/* 5. SIDE HUD (MATCHES NAVBAR) */
+.sideHud {
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.hazardStripes {
+  width: 100px;
+  height: 10px;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--primary),
+    var(--primary) 10px,
+    #000 10px,
+    #000 20px
+  );
+}
+
+.hudData {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.6rem;
+  color: #444;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-align: right;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .sideHud { display: none; }
+  .heavyTitle { letter-spacing: -2px; }
+  .heroContainer { padding: 0 5%; }
+}

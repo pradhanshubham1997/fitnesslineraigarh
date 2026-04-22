@@ -1,0 +1,205 @@
+.contact {
+  background-color: #050505;
+  padding: 12rem 0;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* 1. AMBIENT ATMOSPHERE */
+.ambientRed {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(230, 0, 35, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ambientBlue {
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 150, 255, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+/* 2. THE CONSOLE (Left Side) */
+.tag {
+  color: #ff3e3e;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.title {
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 900;
+  line-height: 0.9;
+  margin: 1.5rem 0;
+}
+
+.title span {
+  -webkit-text-stroke: 1px #fff;
+  color: transparent;
+}
+
+.leadText {
+  color: #888;
+  font-size: 1.2rem;
+  max-width: 450px;
+  margin-bottom: 4rem;
+}
+
+.statsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.statCard {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid #ff3e3e;
+  transition: 0.3s;
+}
+
+.statCard:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(10px);
+}
+
+.statIcon { font-size: 1.5rem; }
+
+.statInfo label {
+  display: block;
+  font-size: 0.7rem;
+  color: #ff3e3e;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.statInfo p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* 3. THE GLASS FORM (Right Side) */
+.glassForm {
+  background: linear-gradient(145deg, rgba(20, 20, 20, 0.8) 0%, rgba(10, 10, 10, 0.95) 100%);
+  padding: 4rem;
+  border-radius: 0; /* Keep it aggressive and sharp */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8);
+}
+
+.formHeader h3 {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 0.5rem;
+}
+
+.formHeader p {
+  color: #666;
+  margin-bottom: 3rem;
+  font-size: 0.9rem;
+}
+
+.inputWrapper {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.cyberInput {
+  width: 100%;
+  padding: 1.2rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.inputFocus {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff3e3e;
+  transition: 0.4s ease;
+}
+
+.cyberInput:focus { outline: none; }
+.cyberInput:focus + .inputFocus { width: 100%; }
+
+.submitBtn {
+  width: 100%;
+  padding: 1.5rem;
+  background: #fff;
+  color: #000;
+  border: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.submitBtn:hover {
+  background: #ff3e3e;
+  color: #fff;
+}
+
+.availability {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #444;
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  background: #00ff00;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ff00;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 1024px) {
+  .mainGrid { grid-template-columns: 1fr; gap: 4rem; }
+  .glassForm { padding: 2rem; }
+}

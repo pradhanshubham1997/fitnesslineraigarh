@@ -1,0 +1,164 @@
+.hubWrapper {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+/* THE TRIGGER BUTTON - TACTICAL BOX */
+.whatsappFloat {
+  width: 80px;
+  height: 80px;
+  background: #000;
+  border: 1px solid #ff3e3e;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0 10px 30px rgba(255, 62, 62, 0.2);
+}
+
+.whatsappFloat:hover {
+  background: #ff3e3e;
+  transform: scale(1.05) rotate(-3deg);
+}
+
+.mainIcon {
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 950;
+  letter-spacing: 2px;
+}
+
+.pulsePoint {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 6px;
+  height: 6px;
+  background: #ff3e3e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff3e3e;
+  animation: radar 1.5s infinite;
+}
+
+/* THE HUD MENU OVERLAY */
+.hudMenu {
+  background: rgba(8, 8, 8, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 62, 62, 0.4);
+  padding: 1.5rem;
+  width: 260px;
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+  pointer-events: none;
+  transition: 0.4s cubic-bezier(0.2, 1, 0.2, 1);
+  clip-path: polygon(0 0, 90% 0, 100% 10%, 100% 100%, 10% 100%, 0 90%);
+}
+
+.active .hudMenu {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+.menuHeader {
+  font-size: 0.6rem;
+  font-weight: 900;
+  color: #ff3e3e;
+  letter-spacing: 4px;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.scanner {
+  width: 40px;
+  height: 2px;
+  background: #ff3e3e;
+  box-shadow: 0 0 10px #ff3e3e;
+  animation: scanMove 2s infinite linear;
+}
+
+/* HUB ITEMS */
+.hubItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  padding: 15px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.hubItem:hover {
+  background: rgba(255, 62, 62, 0.1);
+  border-color: rgba(255, 62, 62, 0.3);
+  transform: translateX(-5px);
+}
+
+.itemIcon { font-size: 1.2rem; filter: drop-shadow(0 0 5px #ff3e3e); }
+
+.itemText p {
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 950;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.itemText span {
+  color: #555;
+  font-size: 0.55rem;
+  font-weight: 800;
+}
+
+.socialRow {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.socialLink {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.6rem;
+  font-weight: 900;
+  color: #fff;
+  border: 1px solid #222;
+  padding: 8px;
+  transition: 0.3s;
+}
+
+.socialLink:hover {
+  background: #fff;
+  color: #000;
+}
+
+@keyframes radar {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+@keyframes scanMove {
+  0% { transform: translateX(-20px); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(20px); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .hubWrapper { bottom: 20px; right: 20px; }
+  .whatsappFloat { width: 60px; height: 60px; }
+  .hudMenu { width: 220px; }
+}
