@@ -30,7 +30,7 @@ export default function Vision() {
               <div className={styles.founderImageWrapper}>
                 {/* Placeholder Image - replace with actual founder photo */}
                 <Image
-                  src="/images/gallary/ownerone.jpg"
+                  src="/Images/gallary/ownerone.JPG"
                   alt="Founder Name 1"
                   width={400}
                   height={450}
@@ -54,7 +54,7 @@ export default function Vision() {
               <div className={styles.founderImageWrapper}>
                 {/* Placeholder Image - replace with actual founder photo */}
                 <Image
-                  src="/images/gallary/ownerone.jpg"
+                  src="/Images/gallary/ownerone.JPG"
                   alt="Founder Name 2"
                   width={400}
                   height={450}

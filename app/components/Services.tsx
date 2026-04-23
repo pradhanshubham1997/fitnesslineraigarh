@@ -39,12 +39,12 @@ const Icons = {
 };
 
 const services = [
-  { title: 'CARDIO', img: '/images/gallary/gym19.jpg', icon: Icons.Cardio, subs: ['Treadmills', 'Ellipticals', 'Steppers', 'Recumbent Bike', 'Rowing Machine'] },
-  { title: 'STRENGTH', img: '/images/gallary/gym8.jpg', icon: Icons.Strength, subs: ['Shoulder Press', 'Chest Press', 'Bicep Curls', 'Leg Press', 'Multi Gym Station'] },
-  { title: 'FREE WEIGHT', img: '/images/gallary/freeweight.jpg', icon: Icons.FreeWeight, subs: ['Dumbbells (50kg)', 'Weight Benches', 'Smith Machine'] },
-  { title: 'CROSSFIT', img: '/images/gallary/gym2.jpg', icon: Icons.Crossfit, subs: ['Kettle Bells', 'Medicine Balls', 'Battle Rope', 'Sledge Hammer', 'TRX'] },
-  { title: 'GROUP EX', img: '/images/gallary/gym11.jpg', icon: Icons.GroupEx, subs: ['Zumba', 'Power Yoga', 'Aerobics', 'Abs Classes', 'Tone & Burn'] },
-  { title: 'SPINNING', img: '/images/gallary/spinning.jpg', icon: Icons.Spinning, subs: ['High Intensity', 'Endurance', 'Rhythm Cycling'] }
+  { title: 'CARDIO', img: '/Images/gallary/gym19.JPG', icon: Icons.Cardio, subs: ['Treadmills', 'Ellipticals', 'Steppers', 'Recumbent Bike', 'Rowing Machine'] },
+  { title: 'STRENGTH', img: '/Images/gallary/gym8.JPG', icon: Icons.Strength, subs: ['Shoulder Press', 'Chest Press', 'Bicep Curls', 'Leg Press', 'Multi Gym Station'] },
+  { title: 'FREE WEIGHT', img: '/Images/gallary/freeweight.JPG', icon: Icons.FreeWeight, subs: ['Dumbbells (50kg)', 'Weight Benches', 'Smith Machine'] },
+  { title: 'CROSSFIT', img: '/Images/gallary/gym2.JPG', icon: Icons.Crossfit, subs: ['Kettle Bells', 'Medicine Balls', 'Battle Rope', 'Sledge Hammer', 'TRX'] },
+  { title: 'GROUP EX', img: '/Images/gallary/gym11.JPG', icon: Icons.GroupEx, subs: ['Zumba', 'Power Yoga', 'Aerobics', 'Abs Classes', 'Tone & Burn'] },
+  { title: 'SPINNING', img: '/Images/gallary/spinning.JPG', icon: Icons.Spinning, subs: ['High Intensity', 'Endurance', 'Rhythm Cycling'] }
 ];
 
 const Services: React.FC = () => {

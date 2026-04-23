@@ -10,10 +10,10 @@ interface Facility {
 }
 
 const facilities: Facility[] = [
-  { name: 'Steam Bath', desc: 'Revitalize and recover in our premium sauna.', img: '/images/gallary/shower.jpg' },
-  { name: 'Health Cafe', desc: 'Nutritious meals & protein shakes.', img: '/images/gallary/cafe1.jpg' },
-  { name: 'Health Screening', desc: 'Professional BMI & body composition analysis.', img: '/images/gallary/helth.jpg' },
-  { name: 'Premium Lockers', desc: 'Secure, spacious digital locker systems.', img: '/images/gallary/lock1.jpg' },
+  { name: 'Steam Bath', desc: 'Revitalize and recover in our premium sauna.', img: '/Images/gallary/shower.JPG' },
+  { name: 'Health Cafe', desc: 'Nutritious meals & protein shakes.', img: '/Images/gallary/cafe1.JPG' },
+  { name: 'Health Screening', desc: 'Professional BMI & body composition analysis.', img: '/Images/gallary/helth.JPG' },
+  { name: 'Premium Lockers', desc: 'Secure, spacious digital locker systems.', img: '/Images/gallary/lock1.JPG' },
 ];
 
 const Facilities: React.FC = () => {

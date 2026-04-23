@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
   return (
     <section className={styles.hero} ref={containerRef}>
       <div className={styles.vignette}>
-        <Image src="/images/gallary/DSC04379.jpg" alt="Hero Background" fill priority sizes="100vw" style={{ objectFit: 'cover' }} quality={75} />
+        <Image src="/Images/gallary/DSC04379.JPG" alt="Hero Background" fill priority sizes="100vw" style={{ objectFit: 'cover' }} quality={75} />
         <div className={styles.vignetteGradient}></div>
       </div>
       <div className={styles.noiseOverlay}></div>
