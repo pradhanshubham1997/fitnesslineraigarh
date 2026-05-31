@@ -1,64 +1,86 @@
-import React from 'react';
+"use client";
+import React, { useState, useEffect, useCallback } from 'react';
 import styles from './Reviews.module.css';
 
 const reviews = [
   { name: 'Amit Kumar', date: '3 weeks ago', text: 'Best gym in Raigarh. The equipment is brand new and the trainers are highly certified. Highly recommend!', rating: 5 },
   { name: 'Priya Singh', date: '1 month ago', text: 'Love the CrossFit classes! The atmosphere is energetic and everyone is so encouraging. Worth every rupee.', rating: 5 },
   { name: 'Karan Mehra', date: '2 months ago', text: 'Joined the premium plan and it is amazing. The steam bath after a heavy workout is a game changer.', rating: 5 },
+  { name: 'Neha Gupta', date: '2 weeks ago', text: 'The yoga sessions are incredible. Finally found a gym that feels like home.', rating: 5 },
+  { name: 'Rohit Sharma', date: '1 week ago', text: 'Excellent trainers and world-class equipment. Highly recommended for anyone serious about fitness.', rating: 5 },
 ];
 
 const Reviews: React.FC = () => {
+  const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const next = useCallback(() => {
+    setCurrent(prev => (prev + 1) % reviews.length);
+  }, []);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(next, 4000);
+    return () => clearInterval(timer);
+  }, [isPaused, next]);
+
+  const r = reviews[current];
+
   return (
-    <section id="reviews" className={styles.reviews}>
-      <div className={styles.gridOverlay}></div>
-      
+    <section id="reviews" className={`section ${styles.reviews}`}>
       <div className="container">
-        <div className={styles.headerSection}>
-          <div className={styles.ratingBox}>
-            <span className={styles.bigScore}>4.9</span>
-            <div className={styles.scoreMeta}>
-              <div className={styles.progressTrack}><div className={styles.progressFill}></div></div>
-              <p>VERIFIED INTEL (150+ USERS)</p>
-            </div>
-          </div>
-          <h2 className={styles.mainTitle}>COMMUNITY <br/><span>FEEDBACK</span></h2>
+        <div className="text-center">
+          <span className="section-subtitle">Testimonials</span>
+          <h2 className="section-title">What Our <span className="highlight">Members Say</span></h2>
+          <p className="section-desc">
+            Real feedback from our fitness community.
+          </p>
         </div>
 
-        <div className={styles.masonry}>
-          {reviews.map((r, idx) => (
-            <div key={idx} className={styles.reviewCard}>
-              <div className={styles.cardHeader}>
-                <div className={styles.userIcon}>
-                  <div className={styles.glitchLayer}></div>
-                  {r.name.charAt(0)}
-                </div>
-                <div className={styles.userInfo}>
-                  <h4 className={styles.userName}>{r.name}</h4>
-                  <span className={styles.userStatus}>ELITE MEMBER</span>
-                </div>
-              </div>
-
-              <div className={styles.cyberRating}>
+        <div
+          className={styles.carousel}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <div className={styles.ratingHeader}>
+            <div className={styles.scoreBox}>
+              <span className={styles.score}>4.9</span>
+              <div className={styles.stars}>
                 {[...Array(5)].map((_, i) => (
-                  <div key={i} className={styles.ratingBar} data-active={i < r.rating}></div>
+                  <svg key={i} width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                 ))}
               </div>
-
-              <p className={styles.reviewText}>"{r.text}"</p>
-              
-              <div className={styles.cardFooter}>
-                <span className={styles.timestamp}>{r.date.toUpperCase()}</span>
-                <div className={styles.googleHologram}>
-                  <svg viewBox="0 0 24 24" width="18" height="18">
-                    <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                    <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                  </svg>
-                </div>
-              </div>
+              <span className={styles.total}>150+ reviews</span>
             </div>
-          ))}
+          </div>
+
+          <div className={styles.slide} key={current}>
+            <div className={styles.avatar}>
+              {r.name.split(' ').map(n => n[0]).join('')}
+            </div>
+            <p className={styles.text}>&ldquo;{r.text}&rdquo;</p>
+            <div className={styles.meta}>
+              <span className={styles.author}>{r.name}</span>
+              <span className={styles.dot}>·</span>
+              <span className={styles.date}>{r.date}</span>
+            </div>
+            <div className={styles.ratingRow}>
+              {[...Array(r.rating)].map((_, i) => (
+                <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              ))}
+            </div>
+          </div>
+
+          <div className={styles.dots}>
+            {reviews.map((_, i) => (
+              <button
+                key={i}
+                className={`${styles.dot} ${i === current ? styles.dotActive : ''}`}
+                onClick={() => setCurrent(i)}
+                aria-label={`Review ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

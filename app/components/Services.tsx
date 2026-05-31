@@ -1,9 +1,8 @@
 "use client";
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import styles from './Services.module.css';
 
-// Premium SVG Icon Paths (Minimalist & Aggressive)
 const Icons = {
   Cardio: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -39,54 +38,67 @@ const Icons = {
 };
 
 const services = [
-  { title: 'CARDIO', img: '/Images/gallary/gym19.JPG', icon: Icons.Cardio, subs: ['Treadmills', 'Ellipticals', 'Steppers', 'Recumbent Bike', 'Rowing Machine'] },
-  { title: 'STRENGTH', img: '/Images/gallary/gym8.JPG', icon: Icons.Strength, subs: ['Shoulder Press', 'Chest Press', 'Bicep Curls', 'Leg Press', 'Multi Gym Station'] },
-  { title: 'FREE WEIGHT', img: '/Images/gallary/freeweight.JPG', icon: Icons.FreeWeight, subs: ['Dumbbells (50kg)', 'Weight Benches', 'Smith Machine'] },
-  { title: 'CROSSFIT', img: '/Images/gallary/gym2.JPG', icon: Icons.Crossfit, subs: ['Kettle Bells', 'Medicine Balls', 'Battle Rope', 'Sledge Hammer', 'TRX'] },
-  { title: 'GROUP EX', img: '/Images/gallary/gym11.JPG', icon: Icons.GroupEx, subs: ['Zumba', 'Power Yoga', 'Aerobics', 'Abs Classes', 'Tone & Burn'] },
-  { title: 'SPINNING', img: '/Images/gallary/spinning.JPG', icon: Icons.Spinning, subs: ['High Intensity', 'Endurance', 'Rhythm Cycling'] }
+  { title: 'Cardio', icon: Icons.Cardio, desc: 'Treadmills, ellipticals, steppers, and rowing machines for endurance training.', img: '/Images/gallary/gym19.JPG' },
+  { title: 'Strength', icon: Icons.Strength, desc: 'Shoulder press, chest press, leg press, and multi-gym stations for power building.', img: '/Images/gallary/gym8.JPG' },
+  { title: 'Free Weights', icon: Icons.FreeWeight, desc: 'Dumbbells up to 50kg, weight benches, and smith machines for functional training.', img: '/Images/gallary/freeweight.JPG' },
+  { title: 'CrossFit', icon: Icons.Crossfit, desc: 'Kettle bells, medicine balls, battle ropes, sledge hammers, and TRX systems.', img: '/Images/gallary/gym2.JPG' },
+  { title: 'Group Classes', icon: Icons.GroupEx, desc: 'Zumba, power yoga, aerobics, abs classes, and tone & burn sessions.', img: '/Images/gallary/gym11.JPG' },
+  { title: 'Spinning', icon: Icons.Spinning, desc: 'High-intensity cycling, endurance rides, and rhythm cycling programs.', img: '/Images/gallary/spinning.JPG' }
 ];
 
 const Services: React.FC = () => {
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const handleTilt = (e: React.MouseEvent, idx: number) => {
+    const card = cardRefs.current[idx];
+    if (!card || window.innerWidth < 768) return;
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${y * -6}deg) translateY(-8px)`;
+  };
+
+  const resetTilt = (idx: number) => {
+    const card = cardRefs.current[idx];
+    if (!card) return;
+    card.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) translateY(0px)';
+  };
+
   return (
-    <section className={styles.services}>
+    <section id="services" className={`section ${styles.services}`}>
       <div className="container">
-        <div className={styles.header}>
-          <div className={styles.tag}>FORCE_CAPABILITIES_06</div>
-          <h2 className={styles.title}>TACTICAL <span>DEPARTMENTS</span></h2>
+        <div className="text-center">
+          <span className="section-subtitle">What We Offer</span>
+          <h2 className="section-title">World-Class <span className="highlight">Facilities</span></h2>
+          <p className="section-desc">
+            Everything you need to crush your fitness goals under one roof.
+          </p>
         </div>
 
         <div className={styles.grid}>
-          {services.map((service, idx) => (
-            <div key={idx} className={styles.card}>
-              <div className={styles.bgImage}>
-                <Image src={service.img} alt={service.title} fill sizes="(max-width: 768px) 100vw, 33vw" style={{ objectFit: 'cover' }} quality={60} loading="lazy" />
+          {services.map((s, idx) => (
+            <div
+              key={idx}
+              ref={(el) => { cardRefs.current[idx] = el; }}
+              className={styles.card}
+              onMouseMove={(e) => handleTilt(e, idx)}
+              onMouseLeave={() => resetTilt(idx)}
+            >
+              <div className={styles.imageWrap}>
+                <Image
+                  src={s.img}
+                  alt={s.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  style={{ objectFit: 'cover' }}
+                  quality={100}
+                  loading={idx < 2 ? "eager" : "lazy"}
+                />
+                <div className={styles.iconWrap}>{s.icon}</div>
               </div>
-              <div className={styles.vignette}></div>
-              
-              <div className={styles.mainContent}>
-                <div className={styles.premiumIcon}>{service.icon}</div>
-                <h3 className={styles.cardTitle}>{service.title}</h3>
-                <div className={styles.statusLine}>
-                  <span className={styles.pulseDot}></span> READY_FOR_DEPLOYMENT
-                </div>
-              </div>
-
-              <div className={styles.revealPanel}>
-                <div className={styles.panelHeader}>
-                  <span>PROTOCOL_0{idx + 1}</span>
-                  <div className={styles.hazardLines}></div>
-                </div>
-                
-                <ul className={styles.subList}>
-                  {service.subs.map((sub, sIdx) => (
-                    <li key={sIdx} className={styles.subItem} style={{ '--d': sIdx } as any}>
-                      <span className={styles.subName}>{sub.toUpperCase()}</span>
-                      <div className={styles.subDot}></div>
-                    </li>
-                  ))}
-                </ul>
-                <button className={styles.actionBtn}>INITIALIZE ACCESS</button>
+              <div className={styles.body}>
+                <h3 className={styles.title}>{s.title}</h3>
+                <p className={styles.desc}>{s.desc}</p>
               </div>
             </div>
           ))}

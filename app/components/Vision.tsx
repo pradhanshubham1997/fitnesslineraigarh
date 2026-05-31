@@ -1,81 +1,91 @@
-'use client';
+"use client";
+import React from 'react';
+import Image from 'next/image';
+import styles from './Vision.module.css';
 
-import styles from "./Vision.module.css";
-import Image from "next/image";
-
-export default function Vision() {
+const Vision: React.FC = () => {
   return (
-    <section id="vision" className="section section--alt">
+    <section id="vision" className={`section ${styles.section}`}>
       <div className="container">
-        
-        {/* Gym Vision Outline */}
-        <div className="text-center">
-          <span className="section-subtitle animate-slide-up">Our True Purpose</span>
-          <h2 className="section-title animate-slide-up delay-1">Vision & Values</h2>
-          <p className={`${styles.mainVision} animate-slide-up delay-2`}>
-            "To revolutionize fitness in Raigarh by providing a world-class training environment that empowers individuals to discover their true strength, build confidence, and exceed their physical limits."
-          </p>
-        </div>
+        <div className={styles.grid}>
+          <div className={styles.content}>
+            <span className="section-subtitle">Our Vision</span>
+            <h2 className="section-title">
+              More Than a Gym.<br />
+              <span className="highlight">A Community.</span>
+            </h2>
+            <p className={styles.text}>
+              Fitness Line was built on a simple belief — fitness should be accessible, 
+              effective, and transformational. We provide world-class equipment, 
+              certified coaches, and a supportive environment where every member 
+              feels motivated to push their limits.
+            </p>
+            <p className={styles.text}>
+              From the first-time gym-goer to the seasoned athlete, our doors are 
+              open to everyone who wants to become a better version of themselves.
+            </p>
 
-        {/* Founders Section */}
-        <div className={styles.foundersSection}>
-          <div className="text-center">
-            <span className="section-subtitle animate-slide-up delay-2">The Leadership</span>
-            <h3 className={`${styles.foundersTitle} animate-slide-up delay-2`}>Meet The Founders</h3>
-          </div>
-
-          <div className={styles.foundersGrid}>
-            {/* Founder 1 */}
-            <div className={`${styles.founderCard} animate-slide-up delay-3`}>
-              <div className={styles.founderImageWrapper}>
-                {/* Placeholder Image - replace with actual founder photo */}
-                <Image
-                  src="/Images/gallary/ownerone.JPG"
-                  alt="Founder Name 1"
-                  width={400}
-                  height={450}
-                  className={styles.founderImage}
-                />
+            <div className={styles.values}>
+              <div className={styles.value}>
+                <span className={styles.valueIcon}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </span>
+                <span>50+ Equipment</span>
               </div>
-              <div className={styles.founderContent}>
-                <h4 className={styles.founderName}>Piyush Parmar</h4>
-                <p className={styles.founderRole}>Co-Founder & Operations Director</p>
-                <div className={styles.founderQuote}>
-                  <p>"I envision a gym where fitness is not an intimidation but a lifestyle. My goal is to build a community where everyone feels supported, educated, and inspired."</p>
-                </div>
-                <p className={styles.founderAbout}>
-                  With over 10 years of experience in strength training and sports nutrition, they lead the programming and coaching philosophy at Fitness Line. They are dedicated to helping our members transform not just their bodies, but their mindsets.
-                </p>
+              <div className={styles.value}>
+                <span className={styles.valueIcon}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                </span>
+                <span>Certified Coaches</span>
               </div>
-            </div>
-
-            {/* Founder 2 */}
-            <div className={`${styles.founderCard} animate-slide-up delay-3`}>
-              <div className={styles.founderImageWrapper}>
-                {/* Placeholder Image - replace with actual founder photo */}
-                <Image
-                  src="/Images/gallary/ownerone.JPG"
-                  alt="Founder Name 2"
-                  width={400}
-                  height={450}
-                  className={styles.founderImage}
-                />
-              </div>
-              <div className={styles.founderContent}>
-                <h4 className={styles.founderName}>Ravindra Yadav</h4>
-                <p className={styles.founderRole}>Co-Founder</p>
-                <div className={styles.founderQuote}>
-                  <p>"Our objective is to deliver a premium fitness experience. We designed this facility to be a second home, providing the tools and atmosphere for our members to thrive."</p>
-                </div>
-                <p className={styles.founderAbout}>
-                  Bringing extensive business expertise and a passion for holistic health to the team, they ensure Fitness Line operates with excellence. They prioritize member-first service and constantly work to upgrade the gym's premium environment.
-                </p>
+              <div className={styles.value}>
+                <span className={styles.valueIcon}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </span>
+                <span>500+ Happy Members</span>
               </div>
             </div>
           </div>
-        </div>
 
+          <div className={styles.ownerCard}>
+            <div className={styles.ownerImage}>
+              <Image
+                src="/Images/gallary/ownerone.JPG"
+                alt="Owner - Fitness Line Gym"
+                width={320}
+                height={380}
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                quality={100}
+              />
+            </div>
+            <div className={styles.ownerInfo}>
+              <h3 className={styles.ownerName}>PIYUSH PARMAR</h3>
+              <span className={styles.ownerRole}>Founder & Head Coach</span>
+              <p className={styles.ownerBio}>
+                With years of experience in fitness training and sports coaching, our founder 
+                envisioned a gym where quality meets affordability. Every machine, every program, 
+                and every coach is chosen with one goal — your transformation.
+              </p>
+              <div className={styles.ownerStats}>
+                <div>
+                  <span className={styles.ownerStatNum}>10+</span>
+                  <span className={styles.ownerStatLabel}>Years Exp.</span>
+                </div>
+                <div>
+                  <span className={styles.ownerStatNum}>1000+</span>
+                  <span className={styles.ownerStatLabel}>Transformed</span>
+                </div>
+                <div>
+                  <span className={styles.ownerStatNum}>4.9</span>
+                  <span className={styles.ownerStatLabel}>Rating</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default Vision;

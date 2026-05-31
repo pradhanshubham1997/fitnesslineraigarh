@@ -1,186 +1,135 @@
 .reviews {
-  background-color: var(--page-bg);
-  padding: 10rem 0;
-  position: relative;
-  overflow: hidden;
+  background: var(--surface);
 }
 
-.gridOverlay {
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(255, 16, 48, 0.05) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255, 16, 48, 0.05) 1px, transparent 1px);
-  background-size: 50px 50px;
-  mask-image: radial-gradient(circle, black, transparent 80%);
-  pointer-events: none;
+.carousel {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-/* 1. RATING HEADER DESIGN */
-.headerSection {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 6rem;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 3rem;
-  position: relative;
-  z-index: 1;
+.ratingHeader {
+  margin-bottom: 2rem;
 }
 
-.ratingBox { display: flex; align-items: center; gap: 20px; }
+.scoreBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--surface-alt);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+}
 
-.bigScore {
-  font-size: 5rem;
-  font-weight: 900;
-  line-height: 1;
+.score {
+  font-size: 2rem;
+  font-weight: 800;
   color: var(--primary);
   font-family: var(--font-heading);
-  text-shadow: 0 0 30px var(--primary-glow);
+  line-height: 1;
 }
 
-.progressTrack {
-  width: 150px;
-  height: 4px;
-  background: var(--border-strong);
-  margin-bottom: 8px;
+.stars {
+  display: flex;
+  gap: 2px;
+  color: #ffc107;
 }
 
-.progressFill {
-  width: 98%;
-  height: 100%;
-  background: var(--primary);
-  box-shadow: 0 0 10px var(--primary-glow);
+.total {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
 }
 
-.scoreMeta p { font-size: 0.75rem; letter-spacing: 2px; color: var(--text-soft); font-weight: 800; }
-
-.mainTitle {
-  text-align: right;
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  font-weight: 900;
-  line-height: 0.9;
-  color: var(--secondary);
-  font-family: var(--font-heading);
-  text-transform: uppercase;
+.slide {
+  animation: fadeIn 0.5s ease-out;
 }
 
-.mainTitle span { color: transparent; -webkit-text-stroke: 1.5px var(--secondary); }
-
-/* 2. THE MASONRY CARDS */
-.masonry {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  position: relative;
-  z-index: 1;
-}
-
-.reviewCard {
-  background: var(--surface);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 3rem;
-  position: relative;
-  transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-  box-shadow: var(--card-shadow);
-}
-
-.reviewCard:hover {
-  transform: translateY(-15px) scale(1.02);
-  border-color: rgba(255, 16, 48, 0.2);
-  background: var(--surface-hover);
-  box-shadow: 0 20px 40px var(--primary-glow);
-}
-
-/* 3. USER ICON GLITCH EFFECT */
-.userIcon {
-  width: 60px;
-  height: 60px;
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
   background: var(--primary-light);
-  border: 1px solid var(--primary-mid);
-  border-radius: var(--radius-sm);
+  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: var(--primary);
-  position: relative;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin: 0 auto 1.5rem;
 }
 
-.glitchLayer {
-  position: absolute;
-  inset: -2px;
-  border: 1px solid var(--primary);
-  border-radius: inherit;
-  opacity: 0;
-  transition: 0.2s;
-}
-
-.reviewCard:hover .glitchLayer {
-  opacity: 0.5;
-  animation: glitch 0.3s infinite;
-}
-
-/* 4. CYBER RATING BARS */
-.cyberRating {
-  display: flex;
-  gap: 6px;
-  margin: 2rem 0;
-}
-
-.ratingBar {
-  flex: 1;
-  height: 4px;
-  background: var(--border-strong);
-  border-radius: 2px;
-}
-
-.ratingBar[data-active="true"] {
-  background: var(--primary);
-  box-shadow: 0 0 10px var(--primary-glow);
-}
-
-.reviewText {
-  color: var(--text-muted);
+.text {
+  font-size: 1.1rem;
+  color: var(--text-main);
+  line-height: 1.7;
   font-style: italic;
-  line-height: 1.8;
-  margin-bottom: 3rem;
-  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
 }
 
-/* 5. FOOTER & LOGO */
-.cardFooter {
+.meta {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-top: 1px dashed var(--border-strong);
-  padding-top: 2rem;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 0.75rem;
 }
 
-.timestamp { font-size: 0.75rem; color: var(--text-soft); letter-spacing: 2px; font-weight: 800; }
-
-.googleHologram {
-  color: var(--text-soft);
-  transition: 0.3s;
-}
-
-.reviewCard:hover .googleHologram {
+.author {
+  font-weight: 700;
   color: var(--secondary);
-  filter: drop-shadow(0 0 8px rgba(0,0,0,0.1));
+  font-size: 0.95rem;
 }
 
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
+.dot {
+  color: var(--text-soft);
+  font-size: 0.85rem;
+}
+
+.date {
+  color: var(--text-soft);
+  font-size: 0.85rem;
+}
+
+.ratingRow {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.dotBtn {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--border-strong);
+  background: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 0;
+}
+
+.dotActive {
+  background: var(--primary);
+  border-color: var(--primary);
+  width: 28px;
+  border-radius: 5px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
-  .headerSection { flex-direction: column-reverse; align-items: flex-start; gap: 3rem; }
-  .mainTitle { text-align: left; }
+  .text {
+    font-size: 1rem;
+  }
 }

@@ -1,0 +1,60 @@
+.bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9998;
+  padding: 0.6rem 0.75rem;
+  padding-bottom: calc(0.6rem + env(safe-area-inset-bottom, 0px));
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+  gap: 0.5rem;
+}
+
+.joinBtn, .waBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0.85rem 0.5rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: 0.2s;
+  min-height: 48px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.joinBtn {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  box-shadow: 0 4px 16px var(--primary-glow);
+}
+
+.joinBtn:active {
+  transform: scale(0.97);
+}
+
+.waBtn {
+  background: #25d366;
+  color: #fff;
+}
+
+.waBtn:active {
+  transform: scale(0.97);
+}
+
+.waBtn svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .bar {
+    display: flex;
+  }
+}

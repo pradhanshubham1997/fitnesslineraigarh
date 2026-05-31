@@ -1,376 +1,195 @@
-/* ─────────────────────────────────────────────
-   NAVBAR — Light Theme · Logo-Inspired
-   Colors: White surface · #E60023 Red · #1a1a1a Charcoal · #8c8c8c Orbital Gray
-   ───────────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.25rem 0;
+  z-index: 1000;
+  transition: 0.3s;
+}
 
-   .navbar {
+.scrolled {
+  padding: 0.7rem 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+}
+
+.navContainer {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logoIcon {
+  border-radius: 8px;
+}
+
+.logoText {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--secondary);
+  letter-spacing: 1px;
+  font-family: var(--font-heading);
+}
+
+.logoAccent {
+  color: var(--primary);
+}
+
+.navLinks {
+  display: flex;
+  gap: 2rem;
+}
+
+.link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.4rem 0;
+  transition: 0.2s;
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.link:hover {
+  color: var(--secondary);
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.joinBtn {
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 4px 16px var(--primary-glow);
+}
+
+.joinBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(230, 57, 70, 0.35);
+}
+
+.menuBtn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menuBtn span {
+  width: 22px;
+  height: 2px;
+  background: var(--secondary);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.menuOpen span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menuOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuOpen span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.overlay {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .navLinks {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1.5rem 0;
+    right: -100%;
+    width: min(320px, 80vw);
+    height: 100vh;
+    flex-direction: column;
+    background: var(--surface);
+    padding: 5rem 2rem 2rem;
+    gap: 0.5rem;
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.08);
+    transition: right 0.4s ease;
     z-index: 1000;
-    background: #ffffff;
-    border-bottom: 1px solid #e8e8e8;
-    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-  
-  /* Scrolled — stays white but tighter with a stronger shadow */
-  .scrolled {
-    padding: 0.75rem 0;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(230, 0, 35, 0.18);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
+
+  .navLinks.open {
+    right: 0;
   }
-  
-  /* ── Container ── */
-  .navContainer {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  
-  /* ═══════════════════════════════
-     LOGO
-  ═══════════════════════════════ */
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-  }
-  
-  .logoWrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  /* Clean logo — no red glow on white bg; subtle lift instead */
-  .logoIcon {
-    object-fit: contain;
-    transition: all 0.3s ease;
-    filter: none;
-  }
-  
-  .logo:hover .logoIcon {
-    transform: scale(1.08) rotate(-2deg);
-    filter: drop-shadow(0 4px 10px rgba(230, 0, 35, 0.25));
-  }
-  
-  .logoTextBox {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-  }
-  
-  /* If you have logo text — dark on light bg */
-  .logoTextPrimary {
-    color: #1a1a1a;
-    font-weight: 800;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-  
-  .logoTextSecondary {
-    color: #8c8c8c;      /* orbital gray from swoosh */
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-  
-  
-  /* ═══════════════════════════════
-     NAV LINKS
-  ═══════════════════════════════ */
-  
-  .navLinks {
-    display: flex;
-    gap: 2.5rem;
-  }
-  
+
   .link {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    padding: 5px 4px;
-    color: #1a1a1a;                  /* dark text on white */
-    text-transform: uppercase;
-    font-weight: 800;
-    font-size: 0.82rem;
-    letter-spacing: 2px;
-    transition: color 0.25s ease;
-    text-decoration: none;
-    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
   }
-  
-  .linkText {
-    position: relative;
-    z-index: 2;
-    transition: transform 0.25s ease;
-  }
-  
-  /* Red underline sweep — replaces the dark glow effect */
-  .link::after {
-    content: '';
-    position: absolute;
-    bottom: 6px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #E60023;
-    border-radius: 2px;
-    transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  
-  .link:hover::after,
-  .link.active::after {
-    width: 100%;
-  }
-  
-  .link:hover .linkText {
-    transform: translateY(-1px);
-    color: #E60023;
-  }
-  
-  /* Active state */
-  .link.active {
-    color: #E60023;
-  }
-  
-  /* Remove the dark-theme bracket animation */
-  .link::before { display: none; }
-  
-  /* Ghost shadow text — hide on light bg (not legible) */
-  .linkHoverShadow { display: none; }
-  
-  
-  /* ═══════════════════════════════
-     NAV ACTIONS
-  ═══════════════════════════════ */
-  
-  .navActions {
+
+  .menuBtn {
     display: flex;
-    align-items: center;
-    gap: 12px;
   }
-  
-  /* ── Join / CTA Button ── */
-  .joinBtn {
-    position: relative;
-    background: #E60023;
-    padding: 11px 28px;
-    min-height: 44px;
-    border: none;
-    border-radius: 50px;                 /* pill shape from design system */
-    color: #ffffff;
-    font-weight: 900;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-family: 'Oswald', sans-serif;
-    box-shadow: 0 4px 16px rgba(230, 0, 35, 0.28);
-    cursor: pointer;
-  }
-  
-  .btnText {
-    position: relative;
-    z-index: 2;
-  }
-  
-  /* Light sweep replaced with a clean brightness lift */
-  .btnGlow {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
-    transition: 0.45s ease;
-  }
-  
-  .joinBtn:hover {
-    background: #cc001f;
-    box-shadow: 0 6px 22px rgba(230, 0, 35, 0.38);
-    transform: translateY(-2px);
-  }
-  
-  .joinBtn:hover .btnGlow {
-    left: 100%;
-  }
-  
-  /* Remove dark-theme corner pip — doesn't suit pill shape */
-  .btnCorner { display: none; }
-  
-  /* ── Optional ghost secondary button ── */
-  .outlineBtn {
-    background: transparent;
-    padding: 10px 22px;
-    min-height: 44px;
-    border: 1.5px solid #E60023;
-    border-radius: 50px;
-    color: #E60023;
-    font-weight: 900;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-family: 'Oswald', sans-serif;
-    cursor: pointer;
-  }
-  
-  .outlineBtn:hover {
-    background: rgba(230, 0, 35, 0.07);
-    transform: translateY(-2px);
-  }
-  
-  
-  /* ═══════════════════════════════
-     MOBILE TOGGLE
-  ═══════════════════════════════ */
-  
-  .mobileToggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    min-width: 44px;
-    min-height: 44px;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .mobileToggle span {
-    width: 24px;
-    height: 2px;
-    background: #1a1a1a;             /* dark bars on white bg */
-    border-radius: 2px;
-    transition: 0.3s ease;
-  }
-  
-  .mobileToggle .middle {
-    width: 14px;
-    align-self: flex-end;            /* offset for visual interest */
-    background: #E60023;             /* red middle bar = logo accent */
-  }
-  
-  /* Open state — X cross */
-  .toggleOpen span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-    background: #E60023;
-  }
-  .toggleOpen span:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  .toggleOpen span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-    background: #E60023;
-  }
-  
-  
-  /* ═══════════════════════════════
-     MOBILE MENU
-  ═══════════════════════════════ */
-  
-  @media (max-width: 1024px) {
-    .navLinks {
-      display: flex;
-      position: fixed;
-      flex-direction: column;
-      top: 0;
-      right: -100%;
-      width: min(320px, 100%);         /* slide-in panel, not full screen */
-      height: 100vh;
-      background: #ffffff;
-      border-left: 1px solid #e8e8e8;
-      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.08);
-      justify-content: center;
-      align-items: flex-start;
-      padding: 0 2.5rem;
-      gap: 0.25rem;
-      transition: right 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 1000;
-    }
-  
-    .navLinks.open {
-      right: 0;
-    }
-  
-    /* Mobile link overrides */
-    .navLinks .link {
-      font-size: 1.1rem;
-      letter-spacing: 2.5px;
-      padding: 0.75rem 0;
-      width: 100%;
-      border-bottom: 1px solid #f0f0f0;
-      color: #1a1a1a;
-    }
-  
-    .navLinks .link:last-child {
-      border-bottom: none;
-    }
-  
-    .navLinks .link::after {
-      bottom: 0;                       /* underline sits on the border */
-    }
-  
-    .mobileToggle {
-      display: flex;
-      z-index: 1001;
-    }
-  
-    .navActions {
-      padding-right: 12px;
-    }
-  
-    /* Hide join btn text on very small screens, keep icon */
-    @media (max-width: 400px) {
-      .joinBtn {
-        padding: 10px 18px;
-        font-size: 0.7rem;
-        letter-spacing: 1px;
-      }
-    }
-  }
-  
-  
-  /* ═══════════════════════════════
-     OVERLAY (mobile menu backdrop)
-  ═══════════════════════════════ */
-  
-  .navOverlay {
-    display: none;
+
+  .overlay {
+    display: block;
     position: fixed;
     inset: 0;
-    background: rgba(26, 26, 26, 0.35);
+    background: rgba(0, 0, 0, 0.3);
     z-index: 999;
-    backdrop-filter: blur(2px);
-    opacity: 0;
-    transition: opacity 0.35s ease;
   }
-  
-  .navOverlay.open {
-    display: block;
-    opacity: 1;
+}
+
+@media (max-width: 480px) {
+  .joinBtn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
   }
+
+  .logoText {
+    font-size: 1rem;
+  }
+}

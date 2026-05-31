@@ -1,16 +1,43 @@
+import dynamic from "next/dynamic";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Services from "./components/Services";
-import Facilities from "./components/Facilities";
-import Transformation from "./components/Transformation";
-import Trainers from "./components/Trainers";
-import Vision from "./components/Vision";
-import Pricing from "./components/Pricing";
-import Gallery from "./components/Gallery";
-import Reviews from "./components/Reviews";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import FloatingWhatsApp from "./components/FloatingWhatsApp";
+
+const Vision = dynamic(() => import("./components/Vision"), {
+  loading: () => <div className="shimmer" style={{ height: 500 }} />,
+});
+const Services = dynamic(() => import("./components/Services"), {
+  loading: () => <div className="shimmer" style={{ height: 500 }} />,
+});
+const Facilities = dynamic(() => import("./components/Facilities"), {
+  loading: () => <div className="shimmer" style={{ height: 400 }} />,
+});
+const Transformation = dynamic(() => import("./components/Transformation"), {
+  loading: () => <div className="shimmer" style={{ height: 600 }} />,
+});
+const Trainers = dynamic(() => import("./components/Trainers"), {
+  loading: () => <div className="shimmer" style={{ height: 500 }} />,
+});
+const Pricing = dynamic(() => import("./components/Pricing"), {
+  loading: () => <div className="shimmer" style={{ height: 600 }} />,
+});
+const Reviews = dynamic(() => import("./components/Reviews"), {
+  loading: () => <div className="shimmer" style={{ height: 450 }} />,
+});
+const Gallery = dynamic(() => import("./components/Gallery"), {
+  loading: () => <div className="shimmer" style={{ height: 400 }} />,
+});
+const Contact = dynamic(() => import("./components/Contact"), {
+  loading: () => <div className="shimmer" style={{ height: 500 }} />,
+});
+const Footer = dynamic(() => import("./components/Footer"), {
+  loading: () => <div className="shimmer" style={{ height: 300 }} />,
+});
+const FloatingWhatsApp = dynamic(() => import("./components/FloatingWhatsApp"), {
+  loading: () => null,
+});
+const StickyCta = dynamic(() => import("./components/StickyCta"), {
+  loading: () => null,
+});
 
 export default function Home() {
   return (
@@ -18,18 +45,19 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Vision />
         <Services />
         <Facilities />
         <Transformation />
         <Trainers />
-        <Vision />
         <Pricing />
-        <Gallery />
         <Reviews />
+        <Gallery />
         <Contact />
       </main>
       <Footer />
       <FloatingWhatsApp />
+      <StickyCta />
     </>
   );
 }

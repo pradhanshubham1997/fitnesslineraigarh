@@ -1,16 +1,26 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#e63946",
+};
 
 export const metadata: Metadata = {
   title: "Fitness Line | Premium Gym in Raigarh",
@@ -47,7 +57,7 @@ const localBusinessSchema = {
   "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200",
   "@id": "https://fitnesslineraigarh.com",
   "url": "https://fitnesslineraigarh.com",
-  "telephone": "+919876543210", 
+  "telephone": "+919876543210",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Sector-01",
@@ -80,6 +90,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} ${inter.variable}`}>
       <head>
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://grainy-gradients.vercel.app" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}

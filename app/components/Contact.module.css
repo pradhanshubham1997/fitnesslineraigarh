@@ -1,205 +1,166 @@
 .contact {
-  background-color: #050505;
-  padding: 12rem 0;
-  position: relative;
-  overflow: hidden;
-  color: #fff;
+  background: linear-gradient(135deg, var(--surface-alt) 0%, var(--surface) 100%);
 }
 
-/* 1. AMBIENT ATMOSPHERE */
-.ambientRed {
-  position: absolute;
-  top: -10%;
-  right: -5%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(230, 0, 35, 0.15) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.ambientBlue {
-  position: absolute;
-  bottom: -10%;
-  left: -5%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(0, 150, 255, 0.05) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.mainGrid {
+.wrapper {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 6rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
   align-items: center;
 }
 
-/* 2. THE CONSOLE (Left Side) */
-.tag {
-  color: #ff3e3e;
-  font-family: 'Oswald', sans-serif;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  font-weight: 700;
+.lead {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
 }
 
-.title {
-  font-size: clamp(3rem, 5vw, 5rem);
-  font-weight: 900;
-  line-height: 0.9;
-  margin: 1.5rem 0;
+.lead strong {
+  color: var(--secondary);
 }
 
-.title span {
-  -webkit-text-stroke: 1px #fff;
-  color: transparent;
-}
-
-.leadText {
-  color: #888;
-  font-size: 1.2rem;
-  max-width: 450px;
-  margin-bottom: 4rem;
-}
-
-.statsGrid {
+.stats {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.25rem;
 }
 
-.statCard {
+.stat {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-left: 3px solid #ff3e3e;
-  transition: 0.3s;
+  gap: 1rem;
 }
 
-.statCard:hover {
-  background: rgba(255, 255, 255, 0.05);
-  transform: translateX(10px);
+.statIcon {
+  width: 44px;
+  height: 44px;
+  background: var(--primary-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex-shrink: 0;
 }
 
-.statIcon { font-size: 1.5rem; }
-
-.statInfo label {
+.stat label {
   display: block;
   font-size: 0.7rem;
-  color: #ff3e3e;
+  font-weight: 700;
   text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
-.statInfo p {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-}
-
-/* 3. THE GLASS FORM (Right Side) */
-.glassForm {
-  background: linear-gradient(145deg, rgba(20, 20, 20, 0.8) 0%, rgba(10, 10, 10, 0.95) 100%);
-  padding: 4rem;
-  border-radius: 0; /* Keep it aggressive and sharp */
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  position: relative;
-  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8);
-}
-
-.formHeader h3 {
-  font-size: 2rem;
-  font-weight: 900;
-  letter-spacing: -1px;
-  margin-bottom: 0.5rem;
-}
-
-.formHeader p {
-  color: #666;
-  margin-bottom: 3rem;
-  font-size: 0.9rem;
-}
-
-.inputWrapper {
-  position: relative;
-  margin-bottom: 2rem;
-}
-
-.cyberInput {
-  width: 100%;
-  padding: 1.2rem;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
-  font-family: 'Oswald', sans-serif;
   letter-spacing: 1px;
-  transition: 0.3s;
+  color: var(--text-soft);
+  margin-bottom: 2px;
 }
 
-.inputFocus {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #ff3e3e;
-  transition: 0.4s ease;
+.stat p {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--secondary);
 }
 
-.cyberInput:focus { outline: none; }
-.cyberInput:focus + .inputFocus { width: 100%; }
+.formCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  box-shadow: var(--card-shadow-hover);
+}
 
-.submitBtn {
+.field {
+  margin-bottom: 1rem;
+}
+
+.input {
   width: 100%;
-  padding: 1.5rem;
-  background: #fff;
-  color: #000;
-  border: none;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
+  padding: 0.9rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  color: var(--text-main);
+  background: var(--surface);
+  outline: none;
   transition: 0.3s;
 }
 
-.submitBtn:hover {
-  background: #ff3e3e;
-  color: #fff;
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-light);
 }
 
-.availability {
+.input::placeholder {
+  color: var(--text-soft);
+}
+
+select.input {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.submit {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-top: 2rem;
-  font-size: 0.8rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
   font-weight: 700;
-  color: #444;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 1.5rem;
 }
 
-.pulseDot {
-  width: 8px;
-  height: 8px;
-  background: #00ff00;
-  border-radius: 50%;
-  box-shadow: 0 0 10px #00ff00;
-  animation: pulse 2s infinite;
+.submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px var(--primary-glow);
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.5); opacity: 0.5; }
-  100% { transform: scale(1); opacity: 1; }
+.submit svg {
+  transition: 0.3s;
 }
 
-@media (max-width: 1024px) {
-  .mainGrid { grid-template-columns: 1fr; gap: 4rem; }
-  .glassForm { padding: 2rem; }
+.submit:hover svg {
+  transform: translateX(4px);
+}
+
+.trust {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin-top: 1rem;
+}
+
+.mapWrapper {
+  margin-top: 4rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border);
+}
+
+.map {
+  width: 100%;
+  height: 350px;
+  border: none;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .map {
+    height: 260px;
+  }
 }
