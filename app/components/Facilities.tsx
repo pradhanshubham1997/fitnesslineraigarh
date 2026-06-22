@@ -4,10 +4,10 @@ import Image from 'next/image';
 import styles from './Facilities.module.css';
 
 const facilities = [
-  { name: 'Steam Bath', desc: 'Revitalize and recover in our premium sauna.', img: '/Images/gallary/shower.JPG' },
-  { name: 'Health Cafe', desc: 'Nutritious meals & protein shakes.', img: '/Images/gallary/cafe1.JPG' },
-  { name: 'Health Screening', desc: 'Professional BMI & body composition analysis.', img: '/Images/gallary/helth.JPG' },
-  { name: 'Premium Lockers', desc: 'Secure, spacious digital locker systems.', img: '/Images/gallary/lock1.JPG' },
+  { name: 'Steam Bath', desc: 'Revitalize and recover in our premium sauna.', img: '/Images/gallary/showernew.png' },
+  { name: 'Health Cafe', desc: 'Nutritious meals & protein shakes.', img: '/Images/gallary/cafenew.png' },
+  { name: 'Health Screening', desc: 'Professional BMI & body composition analysis.', img: '/Images/gallary/healthnew.png' },
+  { name: 'Premium Lockers', desc: 'Secure, spacious digital locker systems.', img: '/Images/gallary/lockernew.png' },
 ];
 
 const Facilities: React.FC = () => {

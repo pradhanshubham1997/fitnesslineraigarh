@@ -4,11 +4,11 @@ import Image from 'next/image';
 import styles from './Trainers.module.css';
 
 const trainers = [
-  { name: "ROHAN", spec: "Head Strength Coach", code: "TK-01", img: "/Images/gallary/gym8.JPG" },
-  { name: "Anjali Desai", spec: "Yoga & Pilates", code: "TK-02", img: "/Images/gallary/gym7.JPG" },
-  { name: "Arvind", spec: "Head Strength Coach", code: "TK-03", img: "/Images/gallary/gym10.JPG" },
-  { name: "GAGAN", spec: "Fitness Trainer", code: "TK-04", img: "/Images/gallary/gym12.JPG" },
-  { name: "Sohan Sinha", spec: "Zumba Instructor", code: "TK-05", img: "/Images/gallary/gym13.JPG" },
+  { name: "ROHAN", spec: "Head Strength Coach", code: "TK-01", img: "/Images/gallary/trainer1.png" },
+  { name: "Anjali Desai", spec: "Yoga & Pilates", code: "TK-02", img: "/Images/gallary/trainer2.png" },
+  { name: "Arvind", spec: "Head Strength Coach", code: "TK-03", img: "/Images/gallary/trainer3.png" },
+  { name: "GAGAN", spec: "Fitness Trainer", code: "TK-04", img: "/Images/gallary/trainer4.png" },
+  { name: "Sohan Sinha", spec: "Zumba Instructor", code: "TK-05", img: "/Images/gallary/trainer5.png" },
   { name: "Mohan Rai", spec: "Weight Training", code: "TK-06", img: "/Images/gallary/gym14.JPG" }
 ];
 

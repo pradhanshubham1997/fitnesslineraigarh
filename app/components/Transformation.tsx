@@ -42,7 +42,7 @@ const Transformation: React.FC = () => {
         <div className={styles.sliderWrapper} onMouseMove={handleMouseMove} onTouchMove={handleMouseMove}>
           <div className={styles.before}>
             <Image
-              src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=2070"
+              src="/Images/gallary/before.png"
               alt="Before"
               fill
               sizes="(max-width: 1024px) 100vw, 80vw"
@@ -54,7 +54,7 @@ const Transformation: React.FC = () => {
           </div>
           <div className={styles.after} style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}>
             <Image
-              src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=2069"
+               src="/Images/gallary/after.png"
               alt="After"
               fill
               sizes="(max-width: 1024px) 100vw, 80vw"

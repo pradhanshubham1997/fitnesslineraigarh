@@ -4,14 +4,15 @@ import Image from 'next/image';
 import styles from './Gallery.module.css';
 
 const allImages: string[] = [
-  "/Images/gallary/gym1.JPG", "/Images/gallary/gym2.JPG", "/Images/gallary/gym3.JPG",
-  "/Images/gallary/gym4.JPG", "/Images/gallary/gym5.JPG", "/Images/gallary/gym6.JPG",
-  "/Images/gallary/gym7.JPG", "/Images/gallary/gym8.JPG", "/Images/gallary/gym9.JPG",
-  "/Images/gallary/gym10.JPG", "/Images/gallary/gym11.JPG", "/Images/gallary/cafe1.JPG",
-  "/Images/gallary/gym16.JPG", "/Images/gallary/gym17.JPG", "/Images/gallary/gym18.JPG",
-  "/Images/gallary/gym19.JPG", "/Images/gallary/gym20.JPG", "/Images/gallary/gym21.JPG",
-  "/Images/gallary/gym22.JPG", "/Images/gallary/gym23.JPG", "/Images/gallary/gym24.JPG",
-  "/Images/gallary/gym25.JPG",
+  "/Images/gallary/gymnew12.png", "/Images/gallary/gym2.JPG", "/Images/gallary/gymnew3.png",
+  "/Images/gallary/gym4.JPG", "/Images/gallary/gym5.JPG", "/Images/gallary/gymnew4.png",
+  "/Images/gallary/gym7.JPG", "/Images/gallary/gym8.JPG", "/Images/gallary/gymnew5.png",
+  "/Images/gallary/gym10.JPG", "/Images/gallary/gym11.JPG", "/Images/gallary/gymnew6.png",
+  "/Images/gallary/gym16.JPG", "/Images/gallary/gym17.JPG", "/Images/gallary/gymnew7.png",
+  "/Images/gallary/gym19.JPG", "/Images/gallary/gym20.JPG", "/Images/gallary/gymnew9.png",
+  "/Images/gallary/gym22.JPG", "/Images/gallary/gym23.JPG", "/Images/gallary/gymnew10.png",
+  "/Images/gallary/gym25.JPG","/Images/gallary/gymn1.JPG","/Images/gallary/gymnew11.png",
+  "/Images/gallary/gymn3.JPG","/Images/gallary/gymn4.JPG","/Images/gallary/gymn5.JPG","/Images/gallary/gymn6.JPG"
 ];
 
 const BATCH_SIZE = 4;
